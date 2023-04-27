@@ -37,7 +37,7 @@ namespace POS.Infrastructure.Persistences.Repositories
 
             if (!string.IsNullOrEmpty(filters.StartDate) && !string.IsNullOrEmpty(filters.EndDate))
             {
-                categories.Where(x => x.AuditCreateDate >= Convert.ToDateTime(filters.StartDate)
+                categories = categories.Where(x => x.AuditCreateDate >= Convert.ToDateTime(filters.StartDate)
                             && x.AuditCreateDate <= Convert.ToDateTime(filters.EndDate).AddDays(1));
             }
 
