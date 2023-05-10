@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using POS.Application.Dtos.Request;
+using POS.Application.Dtos.Category.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
