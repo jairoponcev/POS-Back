@@ -8,7 +8,10 @@ namespace POS.Infrastructure.Persistences.Contexts.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.HasKey(e => e.UserId).HasName("PK__Users__1788CC4C7C33AC42");
+            builder.HasKey(e => e.Id).HasName("PK__Categori__19093A0BD10B69EE");
+
+            builder.Property(e => e.Id)
+                .HasColumnName("UserId");
 
             builder.Property(e => e.Email).IsUnicode(false);
             builder.Property(e => e.Image).IsUnicode(false);

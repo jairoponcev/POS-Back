@@ -7,12 +7,15 @@ namespace POS.Infrastructure.Persistences.Repositories
     {
         private readonly PosContext _context;
 
-        public ICategoryRepository Category { get; set; }
+        public ICategoryRepository Category { get; private set; }
+
+        public IUserRepository User { get; private set; }
 
         public UnitOfWork(PosContext context)
         {
             _context = context;
             Category = new CategoryRepository(_context);
+            User = new UserRepository(_context);
         }
 
         public void Dispose()
