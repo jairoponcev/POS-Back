@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using POS.Infrastructure.FileStorage;
 
 namespace POS.Infrastructure.Persistences.Interfaces
 {
@@ -10,8 +6,13 @@ namespace POS.Infrastructure.Persistences.Interfaces
     {
         // Declaracion o matricula de nuestras interfaces a nivel de repository
         ICategoryRepository Category { get; }
+
         IUserRepository User { get; }
+
+        IAzureStorage Storage { get; }
+
         void SaveChanges();
+
         Task SaveChangesAsync();
     }
 }
