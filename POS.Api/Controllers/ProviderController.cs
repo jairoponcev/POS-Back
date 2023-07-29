@@ -25,5 +25,13 @@ namespace POS.Api.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet("{providerId:int}")]
+        public async Task<IActionResult> ProviderById(int providerId)
+        {
+            var response = await _providerApplication.ProviderById(providerId);
+
+            return Ok(response);
+        }
     }
 }
