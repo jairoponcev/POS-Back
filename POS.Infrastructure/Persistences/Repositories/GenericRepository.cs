@@ -79,7 +79,7 @@ namespace POS.Infrastructure.Persistences.Repositories
         {
             IQueryable<T> query = _entity;
 
-            if (filter != null) query =  query.Where(filter);
+            if (filter != null) query = query.Where(filter);
 
             return query;
         }                
