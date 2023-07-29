@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using POS.Application.Dtos.Provider.Request;
 using POS.Application.Interfaces;
 using POS.Infrastructure.Commons.Bases.Request;
 
 namespace POS.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProviderController : ControllerBase
@@ -30,6 +31,14 @@ namespace POS.Api.Controllers
         public async Task<IActionResult> ProviderById(int providerId)
         {
             var response = await _providerApplication.ProviderById(providerId);
+
+            return Ok(response);
+        }
+
+        [HttpPost("Register")]
+        public async Task<IActionResult> RegisterProvider([FromBody] ProviderRequestDto requestDto)
+        {
+            var response = await _providerApplication.RegisterProvider(requestDto);
 
             return Ok(response);
         }
