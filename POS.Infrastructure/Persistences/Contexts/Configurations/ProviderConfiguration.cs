@@ -8,7 +8,10 @@ namespace POS.Infrastructure.Persistences.Contexts.Configurations
     {
         public void Configure(EntityTypeBuilder<Provider> builder)
         {
-            builder.HasKey(e => e.ProviderId).HasName("PK__Provider__B54C687DA1314900");
+            builder.HasKey(e => e.Id).HasName("PK__Provider__B54C687DA1314900");
+
+            builder.Property(e => e.Id)
+                .HasColumnName("ProviderId");
 
             builder.Property(e => e.DocumentNumber)
                 .HasMaxLength(20)

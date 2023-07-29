@@ -11,6 +11,8 @@ namespace POS.Infrastructure.Persistences.Interfaces
 
         IAzureStorage Storage { get; }
 
+        IProviderRepository Provider { get; }
+
         void SaveChanges();
 
         Task SaveChangesAsync();
