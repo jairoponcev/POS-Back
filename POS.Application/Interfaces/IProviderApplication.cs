@@ -8,5 +8,7 @@ namespace POS.Application.Interfaces
     public interface IProviderApplication
     {
         Task<BaseResponse<BaseEntityResponse<ProviderResponseDto>>> ListProviders(BaseFiltersRequest filters);
+
+        Task<BaseResponse<ProviderResponseDto>> ProviderById(int providerId);
     }
 }

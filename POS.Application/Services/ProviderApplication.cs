@@ -42,5 +42,26 @@ namespace POS.Application.Services
 
             return response;
         }
+
+        public async Task<BaseResponse<ProviderResponseDto>> ProviderById(int providerId)
+        {
+            var response = new BaseResponse<ProviderResponseDto>();
+
+            var provider = await _unitOfWork.Provider.GetByIdAsync(providerId);
+
+            if (provider is not null)
+            {
+                response.IsSuccess = true;
+                response.Data = _mapper.Map<ProviderResponseDto>(provider);
+                response.Message = ReplyMessage.MESSAGE_QUERY;
+            }
+            else
+            {
+                response.IsSuccess = false;
+                response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
+            }
+
+            return response;
+        }
     }
 }
