@@ -15,5 +15,7 @@ namespace POS.Application.Interfaces
         Task<BaseResponse<bool>> RegisterProvider(ProviderRequestDto requestDto);
 
         Task<BaseResponse<bool>> EditProvider(int providerId, ProviderRequestDto requestDto);
+
+        Task<BaseResponse<bool>> RemoveProvider(int providerId);
     }
 }

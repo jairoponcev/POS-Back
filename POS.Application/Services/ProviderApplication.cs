@@ -119,5 +119,35 @@ namespace POS.Application.Services
 
             return response;
         }
+
+        public async Task<BaseResponse<bool>> RemoveProvider(int providerId)
+        {
+            var response = new BaseResponse<bool>();
+
+            var provider = await ProviderById(providerId);
+
+            if (provider.Data is null)
+            {
+                response.IsSuccess = false;
+                response.Message = ReplyMessage.MESSAGE_DOESNOT_EXIST;
+
+                return response;
+            }
+
+            response.Data = await _unitOfWork.Provider.RemoveAsync(providerId);
+
+            if (response.Data)
+            {
+                response.IsSuccess = true;
+                response.Message = ReplyMessage.MESSAGE_DELETE;
+            }
+            else
+            {
+                response.IsSuccess = false;
+                response.Message = ReplyMessage.MESSAGE_FAILED;
+            }
+
+            return response;
+        }
     }
 }
