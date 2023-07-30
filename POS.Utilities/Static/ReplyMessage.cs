@@ -14,6 +14,7 @@ namespace POS.Utilities.Static
         public const string MESSAGE_UPDATE = "Se actualizó correctamente.";
         public const string MESSAGE_DELETE = "Se eliminó correctamente.";
         public const string MESSAGE_EXISTS = "El registro ya existe.";
+        public const string MESSAGE_DOESNOT_EXIST = "El registro no existe.";
         public const string MESSAGE_ACTIVATE = "El registro ha sido activado.";
         public const string MESSAGE_TOKEN = "Token generado correctamente.";
         public const string MESSAGE_TOKEN_ERROR = "Usuario y/o contraseña incorrectos, compruébalos.";

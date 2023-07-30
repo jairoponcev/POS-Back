@@ -87,5 +87,37 @@ namespace POS.Application.Services
 
             return response;
         }
+
+        public async Task<BaseResponse<bool>> EditProvider(int providerId, ProviderRequestDto requestDto)
+        {
+            var response = new BaseResponse<bool>();
+
+            var providerEdit = await ProviderById(providerId);
+
+            if (providerEdit.Data is null)
+            {
+                response.IsSuccess = false;
+                response.Message = ReplyMessage.MESSAGE_DOESNOT_EXIST;
+
+                return response;
+            }
+
+            var provider = _mapper.Map<Provider>(requestDto);
+            provider.Id = providerId;
+            response.Data = await _unitOfWork.Provider.EditAsync(provider);
+
+            if (response.Data)
+            {
+                response.IsSuccess = true;
+                response.Message = ReplyMessage.MESSAGE_UPDATE;
+            }
+            else
+            {
+                response.IsSuccess = false;
+                response.Message = ReplyMessage.MESSAGE_FAILED;
+            }
+
+            return response;
+        }
     }
 }
