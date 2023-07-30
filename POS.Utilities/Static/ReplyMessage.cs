@@ -20,5 +20,6 @@ namespace POS.Utilities.Static
         public const string MESSAGE_TOKEN_ERROR = "Usuario y/o contraseña incorrectos, compruébalos.";
         public const string MESSAGE_VALIDATE = "Errores de validación.";
         public const string MESSAGE_FAILED = "Operación fallida.";
+        public const string MESSAGE_EXCEPTION = "Hubo un error inesperado, comunicarse con el administrador (admin@gmail.com).";
     }
 }
