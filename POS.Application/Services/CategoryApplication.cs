@@ -123,7 +123,9 @@ namespace POS.Application.Services
             if (categoryEdit.Data is null)
             {
                 response.IsSuccess = false;
-                response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
+                response.Message = ReplyMessage.MESSAGE_DOESNOT_EXIST;
+
+                return response;
             }
 
             var category = _mapper.Map<Category>(requestDto);
@@ -152,7 +154,9 @@ namespace POS.Application.Services
             if (category.Data is null)
             {
                 response.IsSuccess = false;
-                response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
+                response.Message = ReplyMessage.MESSAGE_DOESNOT_EXIST;
+
+                return response;
             }
 
             response.Data = await _unitOfWork.Category.RemoveAsync(categoryId);
