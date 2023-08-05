@@ -24,14 +24,5 @@ namespace POS.Api.Controllers
 
             return Ok(response);
         }
-
-        [AllowAnonymous]
-        [HttpPost("Generate/Token")]
-        public async Task<IActionResult> GenerateToken([FromBody] TokenRequestDto requestDto)
-        {
-            var response = await _userApplication.GenerateToken(requestDto);
-
-            return Ok(response);
-        }
     }
 }

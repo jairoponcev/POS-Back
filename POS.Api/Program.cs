@@ -1,6 +1,7 @@
 using POS.Api.Extensions;
 using POS.Application.Extensions;
 using POS.Infrastructure.Extensions;
+using POS.Utilities.AppSettings;
 using WatchDog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 builder.Services.AddSwagger();
+
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("GoogleSettings"));
 
 // Configuracion de las politicas cors para la variable con el nombre de nuestras politicas:
 builder.Services.AddCors(options =>

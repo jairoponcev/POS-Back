@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace POS.Utilities.Static
+﻿namespace POS.Utilities.Static
 {
     public class ReplyMessage
     {
@@ -21,5 +15,6 @@ namespace POS.Utilities.Static
         public const string MESSAGE_VALIDATE = "Errores de validación.";
         public const string MESSAGE_FAILED = "Operación fallida.";
         public const string MESSAGE_EXCEPTION = "Hubo un error inesperado, comunicarse con el administrador (admin@gmail.com).";
+        public const string MESSAGE_GOOGLE_ERROR = "Su cuenta no se encuentra registrada en el sistema.";
     }
 }
