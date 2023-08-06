@@ -8,7 +8,7 @@ namespace POS.Infrastructure.Persistences.Contexts.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.HasKey(e => e.Id).HasName("PK__Categori__19093A0BD10B69EE");
+            builder.HasKey(e => e.Id).HasName("PK__Users__19093A0BD10B69EE");
 
             builder.Property(e => e.Id)
                 .HasColumnName("UserId");
@@ -18,6 +18,10 @@ namespace POS.Infrastructure.Persistences.Contexts.Configurations
             builder.Property(e => e.Password).IsUnicode(false);
             builder.Property(e => e.UserName)
                 .HasMaxLength(50)
+                .IsUnicode(false);
+
+            builder.Property(e => e.AuthType)
+                .HasMaxLength(15)
                 .IsUnicode(false);
         }
     }

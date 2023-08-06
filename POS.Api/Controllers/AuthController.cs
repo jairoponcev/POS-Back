@@ -18,18 +18,18 @@ namespace POS.Api.Controllers
 
         [AllowAnonymous]
         [HttpPost("Login")]
-        public async Task<IActionResult> Login([FromBody] TokenRequestDto requestDto)
+        public async Task<IActionResult> Login([FromBody] TokenRequestDto requestDto, [FromQuery] string authType)
         {
-            var response = await _authApplication.Login(requestDto);
+            var response = await _authApplication.Login(requestDto, authType);
 
             return Ok(response);
         }
 
         [AllowAnonymous]
         [HttpPost("LoginWithGoogle")]
-        public async Task<IActionResult> LoginWithGoogle([FromBody] string credentials)
+        public async Task<IActionResult> LoginWithGoogle([FromBody] string credentials, [FromQuery] string authType)
         {
-            var response = await _authApplication.LoginWithGoogle(credentials);
+            var response = await _authApplication.LoginWithGoogle(credentials, authType);
 
             return Ok(response);
         }

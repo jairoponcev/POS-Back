@@ -10,6 +10,8 @@ public partial class User : BaseEntity
 
     public string? Image { get; set; }
 
+    public string? AuthType { get; set; }
+
     public virtual ICollection<Purcharse> Purcharses { get; } = new List<Purcharse>();
 
     public virtual ICollection<Sale> Sales { get; } = new List<Sale>();

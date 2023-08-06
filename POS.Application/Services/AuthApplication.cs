@@ -33,7 +33,7 @@ namespace POS.Application.Services
             _appSettings = appSettings.Value;
         }
 
-        public async Task<BaseResponse<string>> Login(TokenRequestDto requestDto)
+        public async Task<BaseResponse<string>> Login(TokenRequestDto requestDto, string authType)
         {
             var response = new BaseResponse<string>();
 
@@ -45,6 +45,14 @@ namespace POS.Application.Services
                 {
                     response.IsSuccess = false;
                     response.Message = ReplyMessage.MESSAGE_TOKEN_ERROR;
+
+                    return response;
+                }
+
+                if (user.AuthType != authType)
+                {
+                    response.IsSuccess = false;
+                    response.Message = ReplyMessage.MESSAGE_AUTH_TYPE_GOOGLE;
 
                     return response;
                 }
@@ -69,7 +77,7 @@ namespace POS.Application.Services
             return response;
         }
 
-        public async Task<BaseResponse<string>> LoginWithGoogle(string credentials)
+        public async Task<BaseResponse<string>> LoginWithGoogle(string credentials, string authType)
         {
             var response = new BaseResponse<string>();
 
@@ -88,6 +96,14 @@ namespace POS.Application.Services
                 var user = await _unitOfWork.User.UserByEmail(payload.Email);
 
                 if (user is null)
+                {
+                    response.IsSuccess = false;
+                    response.Message = ReplyMessage.MESSAGE_GOOGLE_ERROR;
+
+                    return response;
+                }
+
+                if (user.AuthType != authType)
                 {
                     response.IsSuccess = false;
                     response.Message = ReplyMessage.MESSAGE_GOOGLE_ERROR;

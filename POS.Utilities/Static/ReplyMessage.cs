@@ -16,5 +16,6 @@
         public const string MESSAGE_FAILED = "Operación fallida.";
         public const string MESSAGE_EXCEPTION = "Hubo un error inesperado, comunicarse con el administrador (admin@gmail.com).";
         public const string MESSAGE_GOOGLE_ERROR = "Su cuenta no se encuentra registrada en el sistema.";
+        public const string MESSAGE_AUTH_TYPE_GOOGLE = "Por favor, ingrese con la opción de Google.";
     }
 }

@@ -13,8 +13,8 @@ namespace POS.Application.Extensions.WatchDog
             {
                 options.IsAutoClear = true;
                 options.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Daily;
-                options.SetExternalDbConnString = configuration.GetConnectionString("PosConnection");
-                options.DbDriverOption = WatchDogDbDriverEnum.MSSQL;
+                //options.SetExternalDbConnString = configuration.GetConnectionString("PosConnection");
+                //options.DbDriverOption = WatchDogDbDriverEnum.MSSQL;
             });
 
             return services;

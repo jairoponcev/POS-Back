@@ -5,8 +5,8 @@ namespace POS.Application.Interfaces
 {
     public interface IAuthApplication
     {
-        Task<BaseResponse<string>> Login(TokenRequestDto requestDto);
+        Task<BaseResponse<string>> Login(TokenRequestDto requestDto, string authType);
 
-        Task<BaseResponse<string>> LoginWithGoogle(string credentials);
+        Task<BaseResponse<string>> LoginWithGoogle(string credentials, string authType);
     }
 }

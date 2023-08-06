@@ -12,6 +12,8 @@ namespace POS.Application.Dtos.User.Request
 
         public int? State { get; set; }
 
+        public string? AuthType { get; set; }
+
         public IFormFile? Image { get; set; }
     }
 }
