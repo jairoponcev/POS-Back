@@ -26,10 +26,6 @@ namespace POS.Application.Validators.Provider
             RuleFor(x => x.Phone)
                 .NotNull().WithMessage("El campo teléfono no puede ser nulo.")
                 .NotEmpty().WithMessage("El campo teléfono no puede ser vacío.");
-
-            RuleFor(x => x.State)
-                .NotNull().WithMessage("El campo estado no puede ser nulo.")
-                .NotEmpty().WithMessage("El campo estado no puede ser vacío.");
         }
     }
 }

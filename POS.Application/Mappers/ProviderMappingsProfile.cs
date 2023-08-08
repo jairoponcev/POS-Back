@@ -21,6 +21,11 @@ namespace POS.Application.Mappers
                 .ReverseMap();
 
             CreateMap<ProviderRequestDto, Provider>();
+
+            CreateMap<Provider, ProviderByIdResponseDto>()
+                .ForMember(x => x.ProviderId, x => x.MapFrom(y => y.Id))
+                .ReverseMap();
+
         }
     }
 }
