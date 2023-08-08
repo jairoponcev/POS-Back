@@ -13,6 +13,8 @@ namespace POS.Infrastructure.Persistences.Interfaces
 
         IProviderRepository Provider { get; }
 
+        IDocumentTypeRepository DocumentType { get; }
+
         void SaveChanges();
 
         Task SaveChangesAsync();

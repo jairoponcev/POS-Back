@@ -17,6 +17,8 @@ namespace POS.Infrastructure.Persistences.Repositories
 
         public IProviderRepository Provider { get; private set; }
 
+        public IDocumentTypeRepository DocumentType { get; private set; }
+
         public UnitOfWork(PosContext context, IConfiguration configuration)
         {
             _context = context;
@@ -24,6 +26,7 @@ namespace POS.Infrastructure.Persistences.Repositories
             Category = new CategoryRepository(_context);
             User = new UserRepository(_context);
             Provider = new ProviderRepository(_context);
+            DocumentType = new DocumentTypeRepository(_context);
 
             Storage = new AzureStorage(configuration);
         }
