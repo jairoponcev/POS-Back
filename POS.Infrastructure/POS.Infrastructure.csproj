@@ -21,4 +21,8 @@
     <ProjectReference Include="..\POS.Utilities\POS.Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistences\Scripts\Down\" />
+  </ItemGroup>
+
 </Project>
